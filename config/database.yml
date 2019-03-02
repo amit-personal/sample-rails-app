@@ -22,5 +22,5 @@ production:
   database: d65kpl6njkmhv7
   host: ec2-54-221-253-228.compute-1.amazonaws.com
   port: 5432
-  username: zigmatsxaaffvt
-  password: 6abca07588bb7a8e8ae2d0dfb722f403ce8849a9aa6b8456fc9712ee7a9f76cd
+  username: voeethjztlqfby
+  password: e7e56b7f5842343a62a7bd764ac710c0c23a7dd33145ef8c5fb68c42a364ddfd
