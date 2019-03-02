@@ -20,7 +20,7 @@ production:
   reconnect: false
   pool: 5
   database: d6cl3b4fi1gasj
-  host: ec2-54-221-253-228.compute-1.amazonaws.com
+  host: ec2-174-129-224-157.compute-1.amazonaws.com
   port: 5432
   username: voeethjztlqfby
   password: e7e56b7f5842343a62a7bd764ac710c0c23a7dd33145ef8c5fb68c42a364ddfd
