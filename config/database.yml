@@ -19,7 +19,7 @@ production:
   encoding: utf8
   reconnect: false
   pool: 5
-  database: d65kpl6njkmhv7
+  database: d6cl3b4fi1gasj
   host: ec2-54-221-253-228.compute-1.amazonaws.com
   port: 5432
   username: voeethjztlqfby
