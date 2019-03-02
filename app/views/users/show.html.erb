@@ -1,0 +1,34 @@
+<table border="0">
+  <tbody>
+    <tr class="athing">
+      <td valign="top" class="td-padding txt-clr">user:</td>
+      <td class="td-padding txt-clr"><%= @user.username %></td>
+    </tr>
+    <tr>
+      <td valign="top" class="td-padding txt-clr">created:</td>
+      <td class="td-padding txt-clr"><%= @user.created_at.strftime("%B %d, %Y") %></td>
+    </tr>
+   <!--  <tr>
+      <td valign="top" class="td-padding txt-clr">karma:</td>
+      <td class="td-padding txt-clr">714</td>
+    </tr> -->
+    <tr>
+      <td valign="top" class="td-padding txt-clr">about:</td>
+      <td class="td-padding"></td>
+    </tr>
+    <tr>
+      <td class="td-padding"></td>
+      <td class="td-padding"><u><%= link_to "submissions", submissions_path(id: @user.username) %></u></td>
+    </tr>
+    <tr>
+      <td class="td-padding"></td>
+      <td class="td-padding"><u><%= link_to "comments", threads_path(id: @user.username) %></u>
+      </td>
+    </tr>
+    <tr>
+      <td class="td-padding"></td>
+      <td class="td-padding"><u><%= link_to "favorites", favorites_path(id: @user.username) %></u>
+      </td>
+    </tr>
+  </tbody>
+</table>

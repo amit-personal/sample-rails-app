@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>News</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+ 	<body>
+    <%= render "shared/navbar" %>
+
+    <main class="col-md-12 col-sm-12 col-xs-12 body-adjust">
+      <div class="content-div col-md-10 col-md-offset-1 col-sm-12 col-xs-12 body-adjust">
+        <%= yield %>
+      </div>
+    </main>
+    <%= render "shared/footer" %>
+  </body>
+</html>

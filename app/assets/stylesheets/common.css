@@ -1,0 +1,247 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+
+  .navlinks {
+    a {
+      padding: 0 12px;
+    }
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+.link {
+  /*margin: 12px auto;*/
+  padding-bottom: 5px;
+  padding-top: 5px;
+  padding-left: 10px;
+}
+
+.text_change{
+    color: #000000;
+    text-decoration: none;
+}
+
+.margin-in-header{
+  padding-bottom: 0px !important;
+  padding-top: 0px !important;
+}
+
+.metadata {
+  span {
+    margin: 0 4px;
+    border-right: 2px solid #777;
+
+    &:first-child {
+      margin: 0;
+    }
+
+    &:last-child {
+      border: 0;
+    }
+  }
+}
+
+.comment {
+  /*margin: 12px auto;*/
+  padding-left: 4px;
+  border-bottom: 2px solid #f5f5f5;
+}
+
+.padding_left{
+  padding-left: 5px;
+}
+
+.subtext{
+  color: #828282;
+  font-size: 10px;
+}
+
+.subtext_cmnt {
+  color: #828282;
+  font-size: 12px;
+}
+
+.comment {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 9pt;
+}
+
+.c00, .c00 a:link {
+  color: #000000;
+}
+
+.more_text{
+  color: #828282;
+  font-size: 15px;
+}
+
+.bottom_content{
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.bigHr {
+    /*background-color: #ff6600;*/
+    color: dimgrey !important;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    /* border: solid 2px dimgrey !important; */
+    height: 2px !important;
+    /*width: 1140px !important;*/
+}
+
+.metadata span {
+    /*margin: 0 4px;*/
+     border-right: 0px solid #777;
+}
+
+.for_footer{
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('/assets/glyphicons-halflings-regular.eot');
+  src: url('/assets/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('/assets/glyphicons-halflings-regular.woff') format('woff'), url('/assets/glyphicons-halflings-regular.ttf') format('truetype'), url('/assets/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+}
+.header-menu {
+  padding: 2px;
+  border-radius: 1px;
+}
+.td-padding {
+  padding: 3px 0px 2px 6px;
+}
+.txt-clr {
+  color: #828282;
+}
+.content-div {
+  background: #f6f6ef;
+  min-height: 85vh;
+}
+.header-title {
+  padding-left: 15px;
+  margin-top: 10px;
+}
+.actions-ac {
+  margin-top: 10px !important;
+}
+.search-box {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.search-area {
+  padding-left: 10px;
+}
+.flter {
+  padding: 2px;
+}
+
+.replies {margin-left: 50px;}
+/* 5 levels nesting */
+.replies .replies .replies .replies .replies {margin-left: 0;}
+.header-top-pad {
+  padding-top: 5px;
+}
+
+/*@media (min-width: 768px) and (max-width: 980px){
+  body {
+    font-size: 18px;
+  }
+  .subtext {
+    font-size: 15px;
+  }
+
+  .subtext_cmnt {
+    font-size: 15px;
+  }
+
+  .comment {
+    font-size: 12pt;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px){
+  body {
+    font-size: 38px !important;
+  }
+  .subtext {
+    font-size: 32px !important;
+  }
+  .subtext_cmnt {
+    font-size: 32px !important;
+  }
+  .comment {
+    font-size: 18pt;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px){
+  body {
+    font-size: 38px !important;
+  }
+  .subtext {
+    font-size: 32px !important;
+  }
+
+  .subtext_cmnt {
+    font-size: 32px !important;
+  }
+
+  .comment {
+    font-size: 18pt;
+  }
+}*/
+
+
+/* Extra small devices (phones, up to 480px) */
+@media screen and (max-width: 767px) {
+  body {
+    font-size: 16px;
+  }
+  html, body {
+    overflow-x:hidden
+  }
+  .subtext {
+    font-size: 12px;
+  }
+
+  .subtext_cmnt {
+    font-size: 14px;
+  }
+
+  .comment {
+    font-size: 12pt;
+  }
+
+  .header-top-pad {
+    padding-top: 1px;
+  }
+  .body-adjust {
+    padding-left: 1px;
+    padding-right: 1px;
+  }
+  .pg-left-pad {
+    padding-left: 9px;
+  }
+}
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991px) {
+  body {
+    font-size: 18px;
+  }
+  .subtext {
+    font-size: 15px;
+  }
+  .subtext_cmnt {
+    font-size: 15px;
+  }
+  .comment {
+    font-size: 12pt;
+  }
+}

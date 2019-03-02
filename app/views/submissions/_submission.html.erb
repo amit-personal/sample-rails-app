@@ -1,0 +1,66 @@
+
+<div class="link" style="background: #FFF">
+  <div class="title">
+    <span class="subtext">
+      <%  if ( (params[:action] == "index") || (params[:action] == "newest"))  %>
+        <%= (link_counter + 1) + ((@page.present? ? @page : 0) * 20) %>.
+      <% end %>
+      <% if current_user.present? %>
+        <a rel="nofollow" data-method="post" href="/links/<%= link.id %>/upvote" class="text_change">
+          <span class="glyphicon glyphicon-triangle-top"></span>
+        </a>
+      <% end %>
+    </span>
+    <%= link_to link.title, (link.url? ? link.url : link), class: "text_change", target: "_blank" %>
+
+    <% if link.url? %>
+      <span class="subtext">
+        (<%= link_to domain_name(link.url), root_path(site: domain_name(link.url)), class: "subtext" %>)
+      </span>
+    <% end %>
+  </div>
+
+  <div class="metadata">
+    <span style="padding-left: 25px;"></span>
+    <span class="points subtext">
+      <%= pluralize(link.points, 'points') %> by <%= link_to link.user.username.present?  ? link.user.username : link.user.email, user_info_path(link.user.username), class: "subtext" %>
+    </span>
+
+    <span class="time-created subtext">
+      <%= time_ago_in_words(link.created_at) %> ago
+    </span>
+
+    <% if current_user.present? %>
+      <!-- <span class="upvote-link">
+        <%#= link_to "upvote (#{link.upvotes})", upvote_link_path(link), method: :post %>
+      </span> -->
+
+      <span class="downvote-link"> <span class="subtext">|</span>
+        <%= link_to "", downvote_link_path(link), method: :post, class: "subtext glyphicon glyphicon-triangle-bottom" %>
+      </span>
+    <% end %>
+
+    <% if link.comments.present? %>
+      <span class="comment-count">
+        <%= link_to "| "+ pluralize(link.comment_count, 'comment'), link, class: "subtext" %>
+      </span>
+    <% else %>
+      <span class="edit-link">
+          <%= link_to "| discuss", link_path(link), class: "subtext" %>
+      </span>
+    <% end %>
+
+    <% if current_user.present? && current_user.owns_link?(link) %>
+      <span class="edit-link">
+        <%= link_to "| edit", edit_link_path(link), class: "subtext" %>
+      </span>
+
+      <span class="delete-link">
+        <%= link_to "| delete", link, method: :delete, data: { confirm: "Are you sure?" }, class: "subtext" %>
+      </span>
+    <% end %>
+
+
+  </div>
+
+</div>

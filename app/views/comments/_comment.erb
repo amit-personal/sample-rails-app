@@ -1,0 +1,21 @@
+<% if current_user.present? %>
+  <a rel="nofollow" data-method="post" href="javascript:void(0)" class="text_change">
+    <span class="glyphicon glyphicon-triangle-top subtext_cmnt"></span>
+  </a>
+<% else %>
+  <a rel="nofollow" data-method="get" href="javascript:void(0)" class="text_change">
+    <span class="glyphicon glyphicon-triangle-top subtext_cmnt"></span>
+  </a>
+<% end %>
+<span class="points subtext_cmnt">
+  <%= link_to comment.user.username.present?  ? comment.user.username : comment.user.email, user_info_path(comment.user.username), class: "subtext_cmnt" %>
+</span>
+
+<span class="time-created subtext_cmnt">
+  <%= time_ago_in_words(comment.created_at).gsub('about','') %> ago
+</span>
+<div class="comment">
+  <span style="padding-left: 12px;"></span>
+  <span class="c00"><%= comment.body %></span>
+  <p><%= link_to 'reply', comment_new_comment_path(comment.id) %></p>
+</div>

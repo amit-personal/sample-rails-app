@@ -1,0 +1,12 @@
+<div class="comment">
+  <div class="row">
+    <h2 class="header-title">Top Users</h2>
+  </div>
+  <div>
+    <ul>
+      <% @users.each do |user|%>
+        <div><%= link_to user.username.present?  ? user.username : user.email, user_info_path(user.username), class: "text_change" %></div>
+      <% end %>
+    </ul>
+  </div>
+</div>

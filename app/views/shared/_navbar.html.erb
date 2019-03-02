@@ -1,0 +1,36 @@
+<header class="col-md-12 col-sm-12 col-xs-12 header-top-pad body-adjust">
+  <div class="header-menu col-md-10 col-md-offset-1 col-sm-12 col-xs-12" style="background: grey">
+    <div class="container-fluid margin-in-header col-md-12 col-sm-12 col-xs-12">
+      <!-- Brand; and toggle get grouped for better mobile display -->
+      <div class="navbar-header pull-left">
+        <div class="navlinks">
+          <b><%= link_to "Geek News", root_path, class: "logo text_change" %></b>
+          <%= link_to "new", newest_links_path, class: " text_change" %> |
+          <%= link_to "comments", comments_path, class: " text_change" %>
+          <% if current_user.present? %>
+            <%= link_to "| submit", new_link_path , class: "text_change" %>
+          <% end %>
+        </div>
+      </div>
+      <% if @links.present? %>
+        <%= form_tag url_for(action: 'index'), method: "get" do %>
+          <%= render "shared/search" %>
+        <% end %>
+      <% elsif @comments.present? %>
+        <%= form_tag url_for(action: 'index'), method: "get" do %>
+          <%= render "shared/search" %>
+        <% end %>
+      <% end %>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="navbar-collapse pull-right" id="bs-example-navbar-collapse-1">
+        <% unless current_user.present? %>
+          <%= link_to "signup", new_user_registration_path, class: "text_change" %>
+          <%= link_to "| login", new_user_session_path, class: "text_change" %>
+        <% else %>
+          <%= link_to current_user.username, edit_user_registration_path, class: "text_change" %>
+          <%= link_to "| logout", destroy_user_session_path, method: :delete, class: "text_change" %>
+        <% end %>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </div>
+</header>

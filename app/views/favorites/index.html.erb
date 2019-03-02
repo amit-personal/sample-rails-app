@@ -1,0 +1,12 @@
+<section class="all-links">
+  <%= render @links %>
+
+  <div class="link" style="background: #FFF">
+    <div class="title">
+      <span class="subtext">
+        <span style="padding-left: 25px;"></span>
+        <%= link_to_next_page @links, 'More', class: "more_text" %>
+      </span>
+    </div>
+  </div>
+</section>

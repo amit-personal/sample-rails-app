@@ -1,0 +1,69 @@
+<section class="link-thread">
+  <div class="comment">
+    <header>
+      <div class="link" style="background: #FFF">
+
+        <div class="metadata">
+          <% if current_user.present? %>
+            <a rel="nofollow" data-method="post" href="/comments/<%= @comment.id %>/upvote" class="text_change">
+              <span class="glyphicon glyphicon-triangle-top subtext_cmnt"></span>
+            </a>
+          <% else %>
+            <a rel="nofollow" data-method="get" href="/users/sign_in" class="text_change">
+              <span class="glyphicon glyphicon-triangle-top subtext_cmnt"></span>
+            </a>
+          <% end %>
+          <span class="points subtext_cmnt">
+            <%= link_to @comment.user.username.present?  ? @comment.user.username : @comment.user.email, user_info_path(@comment.user.username), class: "subtext_cmnt" %>
+          </span>
+
+          <span class="time-created subtext_cmnt">
+            <%= time_ago_in_words(@comment.created_at).gsub('about','') %> ago
+          </span>
+
+          <span class="edit-link">
+            <%= link_to "| parent", link_path(@comment.link), class: "subtext_cmnt" %>
+          </span>
+
+          <span class="downvote-link"> <span class="subtext_cmnt">| On: </span>
+            <%= link_to "#{@comment.link.title}", link_path(@comment.link), class: "subtext_cmnt" %>
+          </span>
+
+          <% if current_user.present? && current_user.owns_comment?(@comment) %>
+            <span class="edit-link">
+              <%= link_to "| edit", edit_link_comment_path(@comment.link, @comment), class: "subtext_cmnt" %>
+            </span>
+
+            <span class="delete-link">
+              <%= link_to "| delete", link_comment_path(@comment.link, @comment), method: :delete, data: { confirm: "Are you sure?" }, class: "subtext_cmnt" %>
+            </span>
+          <% end %>
+        </div>
+
+        <div class="comment">
+          <span style="padding-left: 12px;"></span>
+          <span class="c00"><%= @comment.body %></span>
+        </div>
+
+      </div>
+    </header>
+
+    <% if current_user.present? %>
+      <div class="add-comment row">
+        <div class="col-sm-6">
+          <%= form_for :comment_new, url: link_comments_path(@comment_new.link_id) do |f| %>
+            <%= f.hidden_field :parent_id %>
+            <%= f.hidden_field :link_id %>
+            <div class="form-group">
+              <%= f.text_area :body, class: "form-control", placeholder: "The quick brown fox...", rows: 3, required: true %>
+            </div>
+
+            <div class="form-group">
+              <%= f.button "add comment", class: "btn btn-success" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>

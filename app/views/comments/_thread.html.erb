@@ -1,0 +1,45 @@
+<div class="link" style="background: #FFF">
+
+  <div class="metadata">
+    <% if current_user.present? %>
+      <a rel="nofollow" data-method="post" href="/comments/<%= thread.id %>/upvote" class="text_change">
+        <span class="glyphicon glyphicon-triangle-top subtext_cmnt"></span>
+      </a>
+    <% else %>
+      <a rel="nofollow" data-method="get" href="/users/sign_in" class="text_change">
+        <span class="glyphicon glyphicon-triangle-top subtext_cmnt"></span>
+      </a>
+    <% end %>
+    <span class="points subtext_cmnt">
+      <%= link_to thread.user.username.present?  ? thread.user.username : thread.user.email, user_info_path(thread.user.username), class: "subtext_cmnt" %>
+    </span>
+
+    <span class="time-created subtext_cmnt">
+      <%= time_ago_in_words(thread.created_at).gsub('about','') %> ago
+    </span>
+
+    <span class="edit-link">
+      <%= link_to "| parent", link_path(thread.link), class: "subtext_cmnt" %>
+    </span>
+
+    <span class="downvote-link"> <span class="subtext_cmnt">| On: </span>
+      <%= link_to "#{thread.link.title}", link_path(thread.link), class: "subtext_cmnt" %>
+    </span>
+
+    <% if current_user.present? && current_user.owns_comment?(thread) %>
+      <span class="edit-link">
+        <%= link_to "| edit", edit_link_comment_path(thread.link, thread), class: "subtext_cmnt" %>
+      </span>
+
+      <span class="delete-link">
+        <%= link_to "| delete", link_comment_path(thread.link, thread), method: :delete, data: { confirm: "Are you sure?" }, class: "subtext_cmnt" %>
+      </span>
+    <% end %>
+  </div>
+
+  <div class="comment">
+    <span style="padding-left: 12px;"></span>
+    <span class="c00"><%= thread.body %></span>
+  </div>
+
+</div>
